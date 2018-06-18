@@ -1,0 +1,13 @@
+apiVersion: skaffold/v1alpha2
+kind: Config
+build:
+  artifacts:
+  - imageName: osquery-kubelet-skaffold
+    docker:
+      dockerfilePath: tools/skaffold/Dockerfile
+    workspace: .
+  local: {}
+deploy:
+  kubectl:
+    manifests:
+    - tools/skaffold/*.yaml
